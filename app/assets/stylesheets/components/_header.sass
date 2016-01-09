@@ -1,0 +1,18 @@
+$header-height: 64px
+.header
+  background-color: $main-color
+  height: $header-height
+  position: relative
+.header__container
+  position: relative
+.header-auth-links__item
+  display: inline-block
+  padding-right: 8px
+  &:last-child
+    padding-right: 0
+.header__logo
+  +position(absolute, left 0, top 0)
+.header__logo-link
+  +text-block(26px $header-height, $default-text-reversal 300)
+  +block-link
+  font-family: 'Roboto', sans-serif

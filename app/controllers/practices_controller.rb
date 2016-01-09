@@ -1,0 +1,2 @@
+class PracticesController < ApplicationController
+end

@@ -1,0 +1,20 @@
+// flexbox を使ったバージョン
+.comment
+  display: flex
+.comment__author
+  flex: 0 0 152px
+.comment__author-image
+  border-radius: 50%
+  margin-bottom: 8px
+  width: 104px
+  height: 104px
+.comment__author-name
+  width: 104px
+  text-align: center
+.comment__body
+  background-color: $teal-50
+  padding: 18px 24px
+  p
+    font-size: 16px
+    line-height: 1.6
+    margin-bottom: .9em

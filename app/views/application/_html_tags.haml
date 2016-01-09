@@ -1,0 +1,528 @@
+.sg-base-styles
+  %h1 Base HTML
+  .sg-display
+    %h2 address
+    %h3 Example
+    %address
+      Company Name, Inc.
+      %br/
+      811 7th Ave, Suite 700
+      %br/
+      Manhattan, NY 10019
+      %br/
+      USA
+  .sg-display
+    %h2 blockquote
+    %h3 Example
+    %blockquote
+      %p Some sort of famous witty quote marked up with a <blockquote> and a child <p> element.
+    %blockquote Even better philosophical quote marked up with just a <blockquote> element.
+  .sg-display
+    %h2 figure
+    %h3 Example
+    %figure
+      %img{:alt => "Image alt text 1", :src => "http://placehold.it/240x240"}/
+      %figcaption Figcaption content
+    %figure
+      %img{:alt => "Image alt text 2", :src => "http://placehold.it/240x240"}/
+      %figcaption
+        %h4 Figure Title
+        Figcaption content
+.sg-markup.sg-section
+  .sg-display
+    %h2 form buttons
+    %h3 Example
+    %form
+      %fieldset
+        %legend Buttons
+        %p
+          %input{:type => "button", :value => "Input type button"}/
+        %p
+          %input{:type => "reset", :value => "Input type reset"}/
+        %p
+          %input{:type => "submit", :value => "Input type submit"}/
+        %p
+          %input{:disabled => "disabled", :type => "submit", :value => "Input type submit disabled"}/
+        %p
+          %button{:type => "button"} Button type button
+        %p
+          %button{:type => "reset"} Button type reset
+        %p
+          %button{:type => "submit"} Button type submit
+        %p
+          %button{:disabled => "disabled", :type => "button"} Button type button disabled
+        %p
+          %button Button
+.sg-markup.sg-section
+  .sg-display
+    %h2 form fields default
+    %h3 Example
+    %form
+      %fieldset
+        %legend Form Fields
+        %div
+          %label{:for => "text-input"} Text input
+          %input#text-input{:type => "text"}/
+        %div
+          %label{:for => "text-input-placeholder"} Text input with placeholder
+          %input#text-input-placeholder{:placeholder => "I'm placeholder text", :type => "text"}/
+        %div
+          %label{:for => "readonly-input"} Readonly input
+          %input#readonly-input{:readonly => "readonly", :type => "text", :value => "Read only text input"}/
+        %div
+          %label{:for => "disabled-input"} Disabled input
+          %input#disabled-input{:disabled => "disabled", :type => "text", :value => "Disabled text input"}/
+        %div
+          %label{:for => "required-input"}
+            Required input
+            %span.required *
+          %input#required-input{"aria-required" => "true", :required => "", :type => "text"}/
+        %div
+          %label{:for => "email-input"} Email input
+          %input#email-input{:type => "email"}/
+        %div
+          %label{:for => "search-input"} Search input
+          %input#search-input{:type => "search"}/
+        %div
+          %label{:for => "speech-input"} Speech recognition input
+          %input#speech-input{:name => "speech", :type => "text", "x-webkit-speech" => ""}/
+        %div
+          %label{:for => "tel-input"} Tel input
+          %input#tel-input{:type => "tel"}/
+        %div
+          %label{:for => "url-input"} URL input
+          %input#url-input{:placeholder => "http://", :type => "url"}/
+        %div
+          %label{:for => "password-input"} Password input
+          %input#password-input{:type => "password", :value => "password"}/
+        %div
+          %label{:for => "select-field"} Select field
+          %select#select-field
+            %option{:selected => "selected"} Option 01
+            %option Option 02
+        %div
+          %label{:for => "multiple-select-field"} Multiple select field
+          %select#multiple-select-field{:multiple => "multiple", :size => "5"}
+            %option Option 1
+            %option Option 2
+            %option Option 3
+            %option Option 4
+            %option Option 5
+            %option Option 6
+            %option Option 7
+            %option Option 8
+            %option Option 9
+            %option Option 10
+        %div
+          %label{:for => "radio-input"}
+            %input#radio-input{:name => "rad", :type => "radio"}/
+            Radio input
+        %div
+          %label{:for => "checkbox-input"}
+            %input#checkbox-input{:type => "checkbox"}/
+            Checkbox input
+        %div
+          %label{:for => "file-input"} File input
+          %input#file-input{:type => "file"}/
+        %div
+          %label{:for => "textarea"} Textarea
+          %textarea#textarea{:cols => "30", :rows => "5"} Textarea text
+        %div
+          %label{:for => "color-input"} Color input
+          %input#color-input{:type => "color", :value => "#000000"}/
+        %div
+          %label{:for => "number-input"} Number input
+          %input#number-input{:max => "10", :min => "0", :type => "number", :value => "5"}/
+        %div
+          %label{:for => "range-input"} Range input
+          %input#range-input{:max => "100", :min => "0", :type => "range", :value => "0"}/
+          %output 0
+          :javascript
+            if (document.querySelector) {
+              document.querySelector('#range-input').onchange = function(e) {
+                e.target.nextElementSibling.innerText = e.target.value;
+              }
+            }
+          %input#date-input{:type => "date"}/
+        %div
+          %label{:for => "month-input"} Month input
+          %input#month-input{:type => "month"}/
+        %div
+          %label{:for => "week-input"} Week input
+          %input#week-input{:type => "week"}/
+        %div
+          %label{:for => "time-input"} Time input
+          %input#time-input{:type => "time"}/
+        %div
+          %label{:for => "datetime-input"} Datetime input
+          %input#datetime-input{:type => "datetime"}/
+        %div
+          %label{:for => "datetime-local-input"} Datetime-local input
+          %input#datetime-local-input{:type => "datetime-local"}/
+      %input{:type => "submit", :value => "Submit form"}/
+  .sg-markup.sg-section
+    .sg-display
+      %h2 form fields disabled
+      %h3 Example
+      %form
+        %fieldset
+          %legend Disabled Form Fields
+          %div
+            %label{:for => "text-input-disabled"} Disabled text input
+            %input#text-input-disabled{:disabled => "disabled", :type => "text", :value => "Disabled text input"}/
+          %div
+            %label{:for => "select-field-disabled"} Disabled select field
+            %select#select-field-disabled{:disabled => "disabled"}
+              %option{:selected => "selected"} Option 01
+              %option Option 02
+          %div
+            %label{:for => "file-input-disabled"} Disabled file input
+            %input#file-input-disabled{:disabled => "disabled", :type => "file"}/
+          %div
+            %label{:for => "radio-input-disabled"}
+              %input#radio-input-disabled{:disabled => "disabled", :name => "rad", :type => "radio"}/
+              Disabled radio input
+          %div
+            %label{:for => "checkbox-input-disabled"}
+              %input#checkbox-input-disabled{:disabled => "disabled", :type => "checkbox"}/
+              Disabled checkbox input
+          %div
+            %label{:for => "color-input-disabled"} Disabled color input
+            %input#color-input-disabled{:disabled => "disabled", :type => "color", :value => "#000000"}/
+          %div
+            %label{:for => "range-input-disabled"} Disabled range input
+            %input#range-input-disabled{:disabled => "disabled", :type => "range"}/
+          %div
+            %label{:for => "number-input-disabled"} Disabled number input
+            %input#number-input-disabled{:disabled => "disabled", :max => "10", :min => "0", :type => "number", :value => "5"}/
+          %div
+            %label{:for => "textarea-disabled"} Disabled textarea
+            %textarea#textarea-disabled{:cols => "30", :disabled => "disabled", :rows => "5"} Textarea text
+        %input{:type => "submit", :value => "Submit form"}/
+  .sg-markup.sg-section
+    .sg-display
+      %h2 form fields readonly
+      %h3 Example
+      %form
+        %fieldset
+          %legend Readonly Form Fields
+          %div
+            %label{:for => "text-input-readonly"} Readonly text input
+            %input#text-input-readonly{:readonly => "readonly", :type => "text", :value => "Readonly text input"}/
+          %div
+            %label{:for => "color-input-readonly"} Readonly color input
+            %input#color-input-readonly{:readonly => "readonly", :type => "color", :value => "#000000"}/
+          %div
+            %label{:for => "range-input-readonly"} Readonly range input
+            %input#range-input-readonly{:readonly => "readonly", :type => "range"}/
+          %div
+            %label{:for => "number-input-readonly"} Readonly number input
+            %input#number-input-readonly{:max => "10", :min => "0", :readonly => "readonly", :type => "number", :value => "5"}/
+          %div
+            %label{:for => "textarea-readonly"} Readonly textarea
+            %textarea#textarea-readonly{:cols => "30", :readonly => "readonly", :rows => "5"} Textarea text
+        %input{:type => "submit", :value => "Submit form"}/
+  .sg-markup.sg-section
+    .sg-display
+      %h2 form fields with datalist
+      %h3 Example
+      %form
+        %fieldset
+          %legend Form Fields With Datalist
+          %div
+            %label{:for => "text-input-datalist"} Text input with datalist
+            %input#text-input-datalist{:list => "fav-color", :placeholder => "Type your favorite color", :type => "text", :value => ""}/
+            %datalist#fav-color
+              %option{:value => "Red"} Red
+              %option{:value => "Orange"} Orange
+              %option{:value => "Yellow"} Yellow
+              %option{:value => "Green"} Green
+              %option{:value => "Blue"} Blue
+              %option{:value => "Purple"} Purple
+          %div
+            %label{:for => "range-input-datalist"} Range input with datalist
+            %input#range-input-datalist{:list => "number", :max => "100", :min => "0", :type => "range", :value => "0"}/
+            %output 0
+            %datalist#number
+              %option 25
+              %option 50
+              %option 75
+            :javascript
+              if (document.querySelector) {
+                document.querySelector('#range-input-datalist').onchange = function(e) {
+                  e.target.nextElementSibling.innerText = e.target.value;
+                }
+              }
+            %input#color-input-datalist{:list => "color", :type => "color", :value => "#000000"}/
+            %datalist#color
+              %option #ff0000
+              %option #0000ff
+              %option #00ff00
+              %option #ffff00
+              %option #00ffff
+          %div
+            %label{:for => "date-input-datalist"} Date input with datalist
+            %input#date-input-datalist{:list => "days", :type => "date"}/
+            %datalist#days
+              %option{:label => "Independence Day"} 2013-07-04
+              %option{:label => "Labor Day"} 2013-09-02
+              %option{:label => "Columbus Day"} 2013-10-14
+          %div
+            %label{:for => "time-input-datalist"} Time input with datalist
+            %input#time-input-datalist{:list => "times", :type => "time"}/
+            %datalist#times
+              %option{:label => "Midnight"} 00:00
+              %option 06:00
+              %option{:label => "Noon"} 12:00
+              %option 18:00
+          %div
+            %label{:for => "datetime-local-input-datalist"} Datetime-local input with datalist
+            %input#datetime-local-input-datalist{:list => "datetime-locals", :type => "datetime-local"}/
+            %datalist#datetime-locals
+              %option{:label => "Santa Visit"} 2012-12-24T23:59
+              %option{:label => "Chrismas party"} 2012-12-25T18:00
+              %option 2012-12-30T00:00
+              %option{:label => "Happy New Year"} 2013-01-01T00:00
+          %div
+            %label{:for => "month-input-datalist"} Month input with datalist
+            %input#month-input-datalist{:list => "months", :type => "month"}/
+            %datalist#months
+              %option{:label => "End of last century"} 2000-12
+              %option 2010-01
+              %option 2011-01
+              %option 2012-01
+              %option 2013-01
+          %div
+            %label{:for => "week-input-datalist"} Week input with datalist
+            %input#week-input-datalist{:list => "weeks", :type => "week"}/
+            %datalist#weeks
+              %option{:label => "First week of 2013"} 2013-W01
+              %option{:label => "Second week of 2013"} 2013-W02
+              %option{:label => "13th week of 2013"} 2013-W13
+              %option{:label => "The last week of 2013"} 2013-W52
+        %input{:type => "submit", :value => "Submit form"}/
+  .sg-markup.sg-section
+    .sg-display
+      %h2 form fieldset
+      %h3 Example
+      %form
+        %fieldset
+          %legend Fieldset with legend
+          %p
+            %label{:for => "fieldset-text-input1"} Text Input
+            %input#fieldset-text-input1{:type => "text"}/
+        %input{:type => "submit", :value => "Submit form"}/
+  .sg-markup.sg-section
+    .sg-display
+      %h2 headings 1
+      %h3 Example
+      %h1
+        Heading 1 with
+        %small small text
+        and a
+        %a{:href => "#"} link
+      %h2
+        Heading 2 with
+        %small small text
+        and a
+        %a{:href => "#"} link
+      %h3
+        Heading 3 with
+        %small small text
+        and a
+        %a{:href => "#"} link
+      %h4
+        Heading 4 with
+        %small small text
+        and a
+        %a{:href => "#"} link
+      %h5
+        Heading 5 with
+        %small small text
+        and a
+        %a{:href => "#"} link
+      %h6
+        Heading 6 with
+        %small small text
+        and a
+        %a{:href => "#"} link
+    .sg-display
+      %h2 >headings 2
+      %h3 Example
+      %article
+        %h1
+          Heading 1 (in article) with
+          %small small text
+          and a
+          %a{:href => "#"} link
+        %h2
+          Heading 2 (in article) with
+          %small small text
+          and a
+          %a{:href => "#"} link
+        %h3
+          Heading 3 (in article) with
+          %small small text
+          and a
+          %a{:href => "#"} link
+        %h4
+          Heading 4 (in article) with
+          %small small text
+          and a
+          %a{:href => "#"} link
+        %h5
+          Heading 5 (in article) with
+          %small small text
+          and a
+          %a{:href => "#"} link
+        %h6
+          Heading 6 (in article) with
+          %small small text
+          and a
+          %a{:href => "#"} link
+    .sg-display
+      %h2#sg-headings-3 headings 3
+      %h3 Example
+      %section
+        %h1
+          Heading 1 (in section) with
+          %small small text
+          and a
+          %a{:href => "#"} link
+        %h2
+          Heading 2 (in section) with
+          %small small text
+          and a
+          %a{:href => "#"} link
+        %h3
+          Heading 3 (in section) with
+          %small small text
+          and a
+          %a{:href => "#"} link
+        %h4
+          Heading 4 (in section) with
+          %small small text
+          and a
+          %a{:href => "#"} link
+        %h5
+          Heading 5 (in section) with
+          %small small text
+          and a
+          %a{:href => "#"} link
+        %h6
+          Heading 6 (in section) with
+          %small small text
+          and a
+          %a{:href => "#"} link
+    .sg-display
+      %h2#sg-hr hr
+      %h3 Example
+      %hr/
+  .sg-markup.sg-section
+    .sg-display
+      %h2 list definition
+      %h3 Example
+      %dl
+        %dt Description name
+        %dd Description value
+        %dt Description name
+        %dd Description value
+        %dd Description value
+        %dt Description name
+        %dt Description name
+        %dd Description value
+    .sg-display
+      %h2 list ordered
+      %h3 Example
+      %ol
+        %li list item 1
+        %li
+          list item 1
+          %ol
+            %li list item 2
+            %li
+              list item 2
+              %ol
+                %li list item 3
+                %li list item 3
+            %li list item 2
+            %li list item 2
+        %li list item 1
+        %li list item 1
+    .sg-display
+      %h2 list unordered
+      %h3 Example
+      %ul
+        %li list item 1
+        %li
+          list item 1
+          %ul
+            %li list item 2
+            %li
+              list item 2
+              %ul
+                %li list item 3
+                %li list item 3
+            %li list item 2
+            %li list item 2
+        %li list item 1
+        %li list item 1
+    .sg-display
+      %h2 media
+      %h3 Example
+      %h3 Default Image
+      %img{:alt => "Image alt text 3", :src => "http://placehold.it/240x240"}/
+      %h3 Linked Image
+      %a{:href => "#"}
+        %img{:alt => "Image alt text 4", :src => "http://placehold.it/240x240"}/
+      %h3 Picture
+      %picture
+        %source{:media => "(min-width: 60em)", :srcset => "http://placehold.it/600x600"}
+          %source{:media => "(min-width: 40em)", :srcset => "http://placehold.it/300x300"}
+            %source{:srcset => "http://placehold.it/150x150"}
+              %img{:alt => "Image alt text 5", :src => "http://placehold.it/150x150"}/
+      %h3 Svg
+      %svg{:height => "200px", :width => "200px"}
+        %circle{:cx => "100", :cy => "100", :fill => "#ff0000", :r => "100"}
+      %h3 Video
+      .sg-video
+        %video#video1{:controls => "", :height => "360", :poster => "http://sandbox.thewikies.com/vfe-generator/images/big-buck-bunny_poster.jpg", :preload => "", :width => "640"}
+          %source#mp4{:src => "http://media.w3.org/2010/05/bunny/trailer.mp4", :type => "video/mp4"}
+            %source#ogv{:src => "http://media.w3.org/2010/05/bunny/trailer.ogv", :type => "video/ogg"}
+              %p Your user agent does not support the HTML5 Video element.
+        %label.sg-visually-hidden{:for => "video1"} Video of Big Buck Bunny
+      %h3 Audio
+      %audio{:controls => ""}
+        %source{:src => "http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4", :type => "audio/mp4"}
+          %source{:src => "http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga", :type => "audio/ogg; codecs=vorbis"}
+            %p Your user agent does not support the HTML5 Audio element.
+  .sg-markup.sg-section
+    .sg-display
+      %h2 meter and progress
+      %h3 Example
+      %h3 Meter
+      %p
+        %meter{:high => "90", :low => "70", :max => "100", :value => "100"} 100%
+        A meter displaying 100%.
+      %p
+        %meter{:high => "90", :low => "70", :max => "100", :value => "85"} 85%
+        A meter displaying 85%.
+      %p
+        %meter{:high => "90", :low => "70", :max => "100", :value => "50"} 50%
+        A meter displaying 50%.
+      %p
+        %meter{:high => "90", :low => "70", :max => "100", :value => "0"} 0%
+        A meter displaying 0%.
+      %h3 Progress
+      %p
+        %progress{:max => "100", :value => "100"} 100%
+        A progress displaying 100%.
+      %p
+        %progress{:max => "100", :value => "85"} 85%
+        A progress displaying 85%.
+      %p
+        %progress{:max => "100", :value => "50"} 50%
+        A progress displaying 50%.
+      %p
+        %progress{:max => "100", :value => "0"} 0%
+        A progress displaying 0%.

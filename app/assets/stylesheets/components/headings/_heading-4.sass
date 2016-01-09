@@ -1,0 +1,30 @@
+.heading-4
+  font-size: 24px
+  font-weight: bold
+  background-color: $light-green-500
+  color: $white
+  line-height: 56px
+  padding-left: 56px
+  position: relative
+  &:before
+    content: ''
+    display: block
+    background-color: $light-green-300
+    border-right: $light-green-800 solid 8px
+    height: 8px
+    width: 8px
+    position: absolute
+    top: 50%
+    left: 16px
+    margin-top: -8px
+  &:after
+    content: ''
+    display: block
+    background-color: $light-green-800
+    border-right: $light-green-300 solid 8px
+    height: 8px
+    width: 8px
+    position: absolute
+    bottom: 50%
+    left: 16px
+    margin-bottom: -8px

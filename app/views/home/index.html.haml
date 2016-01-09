@@ -1,0 +1,41 @@
+%main.main
+  .container
+    %nav.nav-card.is-margin-top-32px.is-margin-bottom-32px
+      %h2.nav-card__title リセット
+      %ul.nav-card__items
+        %li.nav-card__item
+          = link_to "default", resets_no_reset_path, class: "nav-card__item-link"
+        %li.nav-card__item
+          = link_to "reset.css", resets_reset_path, class: "nav-card__item-link"
+        %li.nav-card__item
+          = link_to "Normalize.css", resets_normalize_path, class: "nav-card__item-link"
+        %li.nav-card__item
+          = link_to "sanitize.css", resets_sanitize_path, class: "nav-card__item-link"
+
+    %nav.nav-card.is-margin-bottom-32px
+      %h2.nav-card__title コンポーネント（課題）
+      %ul.nav-card__items
+        %li.nav-card__item
+          = link_to "global_nav", practices_global_nav_path, class: "nav-card__item-link"
+        %li.nav-card__item
+          = link_to "alert", practices_alert_path, class: "nav-card__item-link"
+        %li.nav-card__item
+          = link_to "articles", practices_articles_path, class: "nav-card__item-link"
+        %li.nav-card__item
+          = link_to "comment", practices_comment_path, class: "nav-card__item-link"
+        %li.nav-card__item
+          = link_to "heading", practices_heading_path, class: "nav-card__item-link"
+
+    %nav.nav-card
+      %h2.nav-card__title コンポーネントの完成キャプチャ
+      %ul.nav-card__items
+        %li.nav-card__item
+          = link_to "global_nav", captures_global_nav_path, class: "nav-card__item-link"
+        %li.nav-card__item
+          = link_to "alert", captures_alert_path, class: "nav-card__item-link"
+        %li.nav-card__item
+          = link_to "articles", captures_articles_path, class: "nav-card__item-link"
+        %li.nav-card__item
+          = link_to "comment", captures_comment_path, class: "nav-card__item-link"
+        %li.nav-card__item
+          = link_to "heading", captures_heading_path, class: "nav-card__item-link"

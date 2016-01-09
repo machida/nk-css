@@ -1,0 +1,15 @@
+=padding($value1: null, $value2: null)
+  @if $value1 == 'horizontal'
+    @if length($value2) > 1
+      padding-left: #{nth($value2, 1)}
+      padding-right: #{nth($value2, 2)}
+    @else
+      padding-left: $value2
+      padding-right: $value2
+  @else if $value1 == 'vertical'
+    @if length($value2) > 1
+      padding-top: #{nth($value2, 1)}
+      padding-bottom: #{nth($value2, 2)}
+    @else
+      padding-top: $value2
+      padding-bottom: $value2

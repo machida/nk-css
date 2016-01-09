@@ -1,0 +1,29 @@
+=border($value1, $value2)
+  @if type-of($value1) == list
+    $positions: $value1
+    @each $position in $positions
+      @if $position == horizontal
+        border-left: $value2
+        border-right: $value2
+      @else if $position == vertical
+        border-top: $value2
+        border-bottom: $value2
+      @else
+        border-#{$position}: $value2
+  @else
+    @if $value1 == 'all'
+      border: $value2
+    @else if $value1 == 'horizontal'
+      border-left: $value2
+      border-right: $value2
+    @else if $value1 == 'vertical'
+      border-top: $value2
+      border-bottom: $value2
+
+=border-radius($value1, $value2)
+  @if $value1 == 'left' or $value1 == 'right'
+    border-top-#{$value1}-radius: $value2
+    border-bottom-#{$value1}-radius: $value2
+  @else if $value1 == 'top' or $value1 == 'bottom'
+    border-#{$value1}-left-radius: $value2
+    border-#{$value1}-rght-radius: $value2

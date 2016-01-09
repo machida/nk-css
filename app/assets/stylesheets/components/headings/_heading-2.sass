@@ -1,0 +1,28 @@
+.heading-2
+  font-size: 24px
+  font-weight: bold
+  background-color: $light-green-500
+  color: $white
+  line-height: 56px
+  padding-left: 24px
+  position: relative
+  &:before
+    content: ''
+    display: block
+    border: solid 20px
+    border-color: transparent
+    border-top-color: $white
+    position: absolute
+    right: -20px
+    bottom: -20px
+    transform: rotate(-45deg)
+  &:after
+    content: ''
+    display: block
+    border: solid 20px
+    border-color: transparent
+    border-bottom-color: $light-green-700
+    position: absolute
+    right: 8px
+    bottom: 8px
+    transform: rotate(-45deg)

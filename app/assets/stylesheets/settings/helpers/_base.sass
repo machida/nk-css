@@ -1,0 +1,85 @@
+.is-inline-blocks
+  font-size: 0
+.is-visible-mobile
+  display: none
+  +media($phone)
+    display: block
+.is-hidden-mobile
+  +media($phone)
+    display: none
+.is-display-block
+  display: block
+.is-display-none
+  display: none
+
+body
+  $sizes: xs sm md lg xl null
+  $properties: margin padding
+  $directions: left top right bottom horizontal vertical
+  @each $size in $sizes
+    @each $property in $properties
+      @each $direction in $directions
+        @for $i from 1 through 20
+          @if $size == null
+            .is-#{$property}-#{$direction}-#{$i * 4}px
+              #{$property}-#{$direction}: #{$i * 4}px
+          @else
+            .is-#{$size}-#{$property}-#{$direction}-#{$i * 4}px
+              @if $size == xs
+                +media($small-phone)
+                  #{$property}-#{$direction}: #{$i * 4}px
+              @else if $size == sm
+                +media($phone)
+                  #{$property}-#{$direction}: #{$i * 4}px
+              @else if $size == md
+                +media($tablet)
+                  #{$property}-#{$direction}: #{$i * 4}px
+              @else if $size == lg
+                +media($desktop)
+                  #{$property}-#{$direction}: #{$i * 4}px
+              @else if $size == xl
+                +media($wide-desktop)
+                  #{$property}-#{$direction}: #{$i * 4}px
+
+body
+  $positions: left right center
+  @each $position in $positions
+    .is-text-alin-#{$position}
+      text-align: $position
+
+body
+  $sizes: xs sm md lg xl null
+  $properties: max-width width min-width
+  @each $size in $sizes
+    @each $property in $properties
+      @for $i from 20 through 100
+        @if $size == null
+          .is-#{$property}-#{$i * 4}px
+            #{$property}: #{$i * 4}px
+        @else
+          .is-#{$size}-#{$property}-#{$i * 4}px
+            @if $size == xs
+              +media($small-phone)
+                #{$property}: #{$i * 4}px
+            @else if $size == sm
+              +media($phone)
+                #{$property}: #{$i * 4}px
+            @else if $size == md
+              +media($tablet)
+                #{$property}: #{$i * 4}px
+            @else if $size == lg
+              +media($desktop)
+                #{$property}: #{$i * 4}px
+            @else if $size == xl
+              +media($wide-desktop)
+                #{$property}: #{$i * 4}px
+
+body
+  $aligns: center left right
+  @each $align in $aligns
+    .is-text-align-#{$align}
+      text-align: $align
+
+body
+  .is-max-width-100per
+    max-width: 100%

@@ -1,0 +1,220 @@
+=button-border($border-color)
+  +border(all, 1px solid)
+  border-top-color: shade($border-color, 10%)
+  border-left-color: shade($border-color, 15%)
+  border-right-color: shade($border-color, 15%)
+  border-bottom-color: shade($border-color, 20%)
+
+=button-base
+  +inline-block-link
+  +appearance(none)
+  border-radius: 4px
+  cursor: pointer
+  position: relative
+  +transition(background-color .1s ease-in, color .15s ease-in)
+
+=button-text-color($color, $diabled: false)
+  @if $diabled
+    @if luma($color) < 50
+      color: rgba($default-text-reversal, .7)
+      text-shadow: shade($color, 26%) 0 -1px 0
+    @else
+      color: rgba($default-text, .7)
+      text-shadow: tint($color, 40%) 0 1px 0
+  @else
+    @if luma($color) < 50
+      color: $default-text-reversal
+      text-shadow: shade($color, 26%) 0 -1px 0
+    @else
+      color: $default-text
+      text-shadow: tint($color, 40%) 0 1px 0
+
+// 凸状態
+=button-convex-color($color, $disabled: false)
+  +background(linear-gradient(tint($color, 6%), shade($color, 6%)))
+  background-color: $color
+  +button-border($color)
+  box-shadow: tint($color, 40%) 0 1px 1px inset, 0 1px 2px 0 rgba(black, .06), 0 1px 1px rgba(black, .12)
+  +button-text-color($color, $disabled)
+
+// 凹状態
+=button-concave-color($color, $disabled: false)
+  +background(linear-gradient(shade($color, 4%), tint($color, 4%)))
+  background-color: $color
+  +button-border($color)
+  box-shadow: shade($color, 18%) 0 1px 1px inset
+  +button-text-color($color, $disabled)
+
+=button-color($color)
+  @if $color == default
+    $color: $default
+  @else if $color == primary
+    $color: $primary
+  @else if $color == info
+    $color: $info
+  @else if $color == success
+    $color: $success
+  @else if $color == warning
+    $color: $warning
+  @else if $color == danger
+    $color: $danger
+  +button-convex-color($color)
+  &.is-radio,
+  &.is-checkbox
+    &:before
+      background-color: shade($color, 15%)
+    &:active
+      box-shadow: none
+  &:hover
+    $color: tint($color, 20%)
+    +background(linear-gradient(tint($color, 6%), shade($color, 6%)))
+  &:active
+    +button-concave-color(tint($color, 10%))
+  &.is-disabled
+    +button-concave-color(shade($color, 10%), true)
+
+=button-size($font-size)
+  @if $font-size == xs
+    $font-size: 12px
+  @else if $font-size == sm
+    $font-size: 14px
+  @else if $font-size == md
+    $font-size: 16px
+  @else if $font-size == lg
+    $font-size: 20px
+  @else if $font-size == xl
+    $font-size: 24px
+  +text-block($font-size 1.5, center bold)
+  $vertical-padding: round($font-size/1.5)
+  padding: $vertical-padding round($font-size * 1.4)
+  @if $font-size > 19px
+    +bold-ja
+  @else
+    +sans-serif
+  &.is-dummy-select
+    $icon-width: round($font-size * 2.7)
+    $icon-size: round($font-size * 1.3)
+    $button-height: round($font-size * 1.5) + ($vertical-padding * 2)
+    padding-left: $icon-width
+    &:before
+      +fa("\f0d7")
+      +position(absolute, left 0, top 0)
+      border-right: 1px solid shade($default, 15%)
+      +text-block($icon-size $button-height, center shade($default, 55%))
+      +size($icon-width $button-height)
+  &.is-select
+    padding: 0
+    $icon-width: round($font-size * 2.7)
+    $icon-size: round($font-size * 1.3)
+    $button-height: round($font-size * 1.5) + ($vertical-padding * 2)
+    &:after
+      +fa("\f0d7")
+      +position(absolute, right 0, top 0)
+      border-left: 1px solid shade($default, 15%)
+      +text-block($icon-size $button-height, center shade($default, 55%))
+      +size($icon-width $button-height)
+    select
+      padding: $vertical-padding round($font-size * 1.4)
+      font-size: inherit
+      +position(relative, 1)
+  &.is-radio,
+  &.is-checkbox
+    $icon-space: round($font-size * 2.2)
+    padding-left: $icon-space
+    &:before
+      content: ""
+      display: block
+      +position(absolute, left 16px, top 50%)
+      box-shadow: rgba(black, 0.2) 0 1px 1px inset
+      $check-base-size: round($font-size * .9)
+      +size($check-base-size)
+      margin-top: round($check-base-size / -2)
+    &:after
+      $check-icon-size: round($font-size * 1.4)
+      +fa("\f00c")
+      opacity: 0
+      +size($check-icon-size)
+      +text-block($check-icon-size 1, $accent-color)
+      text-shadow: rgba(black, .4) 0 1px 1px
+      +position(absolute, left 14px, top 50%)
+      margin-top: round($check-icon-size / -2 * 1.2)
+
+=button($font-size, $background-color, $checked-background-color)
+  +button-base
+  +button-color($background-color)
+  +button-size($font-size)
+  @if $checked-background-color
+    &.is-checked
+      +button-concave-color($checked-background-color)
+      &:before
+        background-color: shade($checked-background-color, 30%)
+      &:after
+        opacity: 1
+
+$sizes: xs sm md lg xl
+$colors: default primary info success warning danger
+$size: ''
+$color: ''
+@each $size in $sizes
+  @each $color in $colors
+    .is-#{$size}-#{$color}-button
+      @if $size == md and $color == default
+        +button($size, $color, #999)
+      @else
+        +button($size, $color, $main-color-d)
+
+*[class*="-button"]
+  &:active,
+  &.is-checked
+    top: 1px
+  &.is-checked
+    &:after
+      opacity: 1
+  &.is-block
+    display: block
+    width: 100%
+    select
+      display: block
+      width: 100%
+  &.is-radio,
+  &.is-checkbox
+    display: block
+  &.is-radio
+    &:before
+      border-radius: 50%
+  &.is-checkbox
+    &:before
+      border-radius: 3px
+  &:active
+    top: 1px
+  &.is-no-move
+    &:active,
+    &.is-checked
+      top: 0
+  &.is-disabled,
+  &:disabled
+    pointer-events: none
+    cursor: default
+    select
+      cursor: default
+  .is-button-group >li &
+    border-radius: 0
+  .is-button-group >li:first-child &
+    border-radius: 4px 0 0 4px
+  .is-button-group  >li:last-child &
+    border-radius: 0 4px 4px 0
+  &.is-select
+    select
+      vertical-align: middle
+      font-size: inherit
+      color: inherit
+      cursor: pointer
+
+.is-button-group
+  font-size: 0
+  >li
+    display: inline-block
+  @for $i from 1 through 12
+    &.is-#{$i}-items
+      >li
+        width: 100% / $i

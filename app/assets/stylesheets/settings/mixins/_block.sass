@@ -1,0 +1,50 @@
+=ellipsis-block($width: 100%, $block: block)
+  display: $block
+  max-width: $width
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+  word-wrap: normal
+
+=position($value1: null, $value2: null, $value3: null, $value4: null, $value5: null, $value6: null)
+  $values: $value1 $value2 $value3 $value4 $value5 $value6
+  @each $value in $values
+    @if length($value) > 1
+      #{nth($value, 1)}: nth($value, 2)
+    @else if type-of($value) == 'number'
+      z-index: $value
+    @else
+      position: #{$value}
+
+=text-block($basic-values: null, $option-values: null)
+  @if nth($basic-values, 1)
+    font-size: nth($basic-values, 1)
+  @if length($basic-values) > 1 and nth($basic-values, 2)
+    line-height: nth($basic-values, 2)
+  @if length($basic-values) == 3 and nth($basic-values, 3)
+    margin-bottom: nth($basic-values, 3)
+  @if $option-values
+    @each $option-value in $option-values
+      @if type-of($option-value) == color
+        color: $option-value
+      @else if $option-value == 'bold' or $option-value == 'normal' or (type-of($option-value) == number and unit($option-value) == '')
+        font-weight: $option-value
+      @else if $option-value == 'italic' or $option-value == 'oblique'
+        font-style: $option-value
+      @else if $option-value == '/normal'
+        font-style: normal
+      @else if $option-value == 'left' or $option-value == 'right' or $option-value == 'center'
+        text-align: $option-value
+      @else if $option-value == 'block' or $option-value == 'inline' or $option-value == 'inline-block' or $option-value == 'list-item' or $option-value == 'run-in' or $option-value == 'table' or $option-value == 'inline-table' or $option-value == 'table-row-group' or $option-value == 'table-header-group' or $option-value == 'table-footer-group' or $option-value == 'table-row' or $option-value == 'table-column-group' or $option-value == 'table-column' or $option-value == 'table-cell' or $option-value == 'table-caption' or $option-value == 'none'
+        display: $option-value
+
+=circle-icon($sizes, $colors)
+  $circle-size: nth($sizes, 1)
+  $font-size: nth($sizes, 2)
+  $backgorund-color: nth($colors, 1)
+  $icon-color: nth($colors, 2)
+  display: inline-block
+  +text-block($font-size $circle-size, center $icon-color)
+  +size($circle-size)
+  background-color: $backgorund-color
+  border-radius: 50%

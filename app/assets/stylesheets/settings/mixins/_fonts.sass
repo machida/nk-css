@@ -1,0 +1,18 @@
+=basic-font
+  font-family: 'Roboto', 'Noto Sans Japanese', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif
+=sans-serif
+  +basic-font
+=bold-ja
+  font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", "游ゴシック", YuGothic, "メイリオ", Meiryo, Roboto, "Droid Sans", "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Helvetica, Arial, Verdana, sans-serif, "ＭＳ Ｐゴシック", Helvetica, Arial, Verdana, sans-serif
+=fa($icon)
+  font-family: FontAwesome
+  font-weight: normal
+  font-style: normal
+  text-indent: 0px
+  content: "#{$icon}"
+=droid($font-weight: null)
+  font-family: 'Droid Sans', sans-serif
+  @if $font-weight == bold
+    font-weight: 700
+  @else
+    font-weight: $font-weight

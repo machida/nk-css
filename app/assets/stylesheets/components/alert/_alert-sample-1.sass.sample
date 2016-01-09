@@ -1,0 +1,69 @@
+// 半透明のスクリーン
+.alert-background
+  background-color: $black-dark
+  position: fixed
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  //
+    これでもいける
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+
+// アラート
+.alert
+  width: 480px
+  height: 320px
+  background-color: white
+  border: solid 4px $red-700
+  position: fixed
+  left: 50%
+  top: 50%
+  margin-left: -240px
+  margin-top: -160px
+  box-sizing: border-box
+  z-index: 1
+
+// アラートのクローズ
+.alert__close
+  background-color: $grey-800
+  width: 40px
+  height: 40px
+  position: absolute
+  right: -20px
+  top: -20px
+  text-align: center
+  border-radius: 50%
+.alert__close-icon
+  font-size: 28px
+  color: white
+  line-height: 40px
+
+.alert__header
+  background-color: $red-400
+  padding-top: 24px
+  padding-bottom: 24px
+  text-align: center
+.alert__icon
+  font-size: 72px
+  margin-bottom: 8px
+  color: $red-900
+
+// アラートのタイトル
+.alert__title
+  font-size: 24px
+  font-weight: bold
+  color: white
+  letter-spacing: 8px
+  text-indent: 8px
+
+
+
+.alert__body
+  padding: 24px
+.alert__description
+  font-size: 16px
+  line-height: 1.6

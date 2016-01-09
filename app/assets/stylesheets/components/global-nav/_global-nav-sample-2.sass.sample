@@ -1,0 +1,20 @@
+.global-nav
+  background-color: $teal-300
+.global-nav__items
+  font-size: 0
+.global-nav__item
+  width: 20%
+  display: inline-block
+.global-nav__item-link
+  background-color: $teal-300
+  color: $white
+  text-decoration: none
+  font-size: 16px
+  display: block
+  text-align: center
+  line-height: 44px
+  +transition(background-color .4s ease-in)
+  &:hover
+    background-color: $teal-200
+  &:active
+    background-color: $teal-100

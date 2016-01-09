@@ -1,0 +1,32 @@
+.comment
+  padding-left: 152px
+  position: relative
+.comment__author
+  position: absolute
+  left: 0
+  top: 0
+.comment__author-image
+  border-radius: 50%
+  margin-bottom: 8px
+  width: 104px
+  height: 104px
+.comment__author-name
+  width: 104px
+  text-align: center
+.comment__body
+  background-color: $teal-50
+  padding: 18px 24px
+  position: relative
+  &:before
+    content: ''
+    position: absolute
+    border-style: solid
+    border-width: 10px 22px
+    border-color: transparent
+    border-right-color: $teal-50
+    left: -44px
+    top: 32px
+  p
+    font-size: 16px
+    line-height: 1.6
+    margin-bottom: .9em

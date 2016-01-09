@@ -1,0 +1,71 @@
+$form-font-size: 16px !default
+$text-input-border-color: $border-color-b !default
+$text-input-focus-border-color: $border-color
+$text-input-background-color: #f6f6f6 !default
+$text-input-focus-background-color: $base-color !default
+
+
+=text-input-base
+  padding: 4px 8px
+  border: $text-input-border-color solid 1px
+  display: block
+  width: 100%
+  +text-block($form-font-size 1.6)
+  border-radius: 4px
+  background-color: $text-input-background-color
+  box-shadow: rgba(black, .1) 0 1px 1px inset
+  &:focus,
+  &.is-focus
+    border-color: $text-input-focus-border-color
+    background-color: $text-input-focus-background-color
+    box-shadow: rgba(black, .2) 0 1px 1px inset
+
+.form-item
+  &:last-child
+    margin-bottom: 0
+.form-label
+  +text-block($form-font-size 1.6, right block bold)
+  padding-top: 4px
+  +position(relative)
+  &.is-sm
+    +text-block(14px 1.5 4px, left)
+    &.is-required
+      &:after
+        +position(static)
+        display: inline-block
+        vertical-align: top
+        margin-left: 4px
+        +position(relative, right auto, top -2px)
+    .is-option
+      +text-block(12px, tint($default-text, 20%) normal)
+  &.is-md
+    +text-block(16px 1.5 6px, left)
+  &.is-required
+    &:after
+      content: "*"
+      color: $danger
+      +position(absolute, top $form-font-size/-4, right $form-font-size / -2)
+.form-text-input
+  +text-input-base
+.form-label-under-input
+  +text-block(12px 1.5)
+  padding-top: 4px
+.form-textarea
+  +text-input-base
+  @for $i from 2 through 40
+    &.is-#{$i}-lines
+      height: ($form-font-size * 1.6) * $i + 8px
+
+.form-item__separator
+  +text-block(24px 1, center)
+
+.form-actions
+  text-align: center
+  font-size: 0
+  +position(relative)
+.form-actions__item
+  display: inline-block
+  +padding(horizontal, 8px)
+  &.is-sub-action
+    +padding(horizontal, 0)
+    +position(absolute, right 0, bottom 0)

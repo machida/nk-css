@@ -1,0 +1,45 @@
+//////////////////////////
+// breakpoints
+//////////////////////////
+
+// min-width
+$small-phone-min-width: 0
+$phone-min-width: 544px
+$tablet-min-width: 768px
+$desktop-min-width: 992px
+$wide-desktop-min-width: 1200px
+
+// max-width
+$small-phone-max-width: $phone-min-width - 1
+$phone-max-width: $tablet-min-width - 1
+$tablet-max-width: $desktop-min-width - 1
+$desktop-max-width: $wide-desktop-min-width - 1
+$wide-desktop-max-width: 9999px
+
+// less-than
+$less-than-small-phone: new-breakpoint(max-width ($small-phone-max-width) 12)
+$less-than-phone: new-breakpoint(max-width $phone-max-width 12)
+$less-than-tablet: new-breakpoint(max-width $tablet-max-width 12)
+$less-than-desktop: new-breakpoint(max-width $desktop-max-width 12)
+$less-than-wide-desktop: new-breakpoint(max-width $wide-desktop-max-width 12)
+
+// more-than
+$more-than-small-phone: new-breakpoint(min-width ($small-phone-min-width) 12)
+$more-than-phone: new-breakpoint(min-width $phone-min-width 12)
+$more-than-tablet: new-breakpoint(min-width $tablet-min-width 12)
+$more-than-desktop: new-breakpoint(min-width $desktop-min-width 12)
+$more-than-wide-desktop: new-breakpoint(min-width $wide-desktop-min-width 12)
+
+// only
+$only-small-phone: new-breakpoint(min-width ($small-phone-min-width) max-width $small-phone-max-width 12)
+$only-phone: new-breakpoint(min-width $phone-min-width max-width $phone-max-width 12)
+$only-tablet: new-breakpoint(min-width $tablet-min-width max-width $tablet-max-width 12)
+$only-desktop: new-breakpoint(min-width $desktop-min-width max-width $desktop-max-width 12)
+$only-wide-desktop: new-breakpoint(min-width $wide-desktop-min-width max-width $wide-desktop-max-width 12)
+
+// shortcut
+$small-phone: $less-than-small-phone
+$phone: $less-than-phone
+$tablet: $less-than-tablet
+$desktop: $less-than-desktop
+$wide-desktop: $less-than-wide-desktop

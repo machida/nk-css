@@ -1,0 +1,18 @@
+.nav-card
+  box-shadow: 0 2px 2px 0 rgba(black, .14), 0 3px 1px -2px rgba(black, .2), 0 1px 5px 0 rgba(black, .12)
+.nav-card__title
+  background-color: $main-color
+  +text-block(18px 44px, $default-text-reversal)
+  +padding(horizontal, 24px)
+  &.--reset
+    background-color: red
+.nav-card__item
+  border-bottom: $black-lighter solid 1px
+  &:last-child
+    border-bottom: none
+.nav-card__item-link
+  +block-link
+  +text-block(16px 44px, $default-text)
+  +padding(horizontal, 24px)
+  &:hover
+    background-color: $grey-300
