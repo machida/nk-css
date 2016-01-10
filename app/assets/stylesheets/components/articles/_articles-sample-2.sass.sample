@@ -1,0 +1,31 @@
+.articles__items
+  margin-left: -16px
+  margin-right: -16px
+  display: flex
+  flex-wrap: wrap
+.articles__item
+  margin-bottom: 32px
+  padding-left: 16px
+  padding-right: 16px
+  box-sizing: border-box
+  flex: 33.3%
+.articles__item-image-container
+  margin-bottom: 4px
+  position: relative
+.articles__item-image
+  width: 100%
+.articles__item-crerated-at
+  background-color: $black-dark
+  text-align: right
+  line-height: 24px
+  padding-right: 8px
+  color: $white
+  font-size: 14px
+  position: absolute
+  bottom: 0
+  width: 100%
+  box-sizing: border-box
+.articles__item-title
+  font-size: 18px
+  font-weight: bold
+  line-height: 1.4
