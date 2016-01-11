@@ -32,3 +32,8 @@
   font-size: 18px
   font-weight: bold
   line-height: 1.4
+  //
+    もし、タイトルが長い記事があったら？
+    overflow: hidden
+    // .articles__item-title の高さが二行分になり、はみ出したぶんは隠れる
+    height: (18px * 1.4) * 2
