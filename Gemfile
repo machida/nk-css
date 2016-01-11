@@ -18,8 +18,7 @@ gem 'slim-rails'
 
 group :development, :test do
   gem 'byebug'
-  gem 'xray-rails', :git => 'git://github.com/mattbrictson/xray-rails',
-                    :branch => "sprockets-rails-3"
+  gem 'xray-rails'
 end
 
 group :development do
